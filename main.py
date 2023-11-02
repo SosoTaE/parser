@@ -1,17 +1,9 @@
 import fitz  # PyMuPDF
 
-
-pdf_file = "pdfs/invoice_600000008842433.pdf"
+pdf_file = "pdfs/2023-10-17T06-28 Transaction #6687598381352852-13529895.pdf"
 
 pdf_document = fitz.open(pdf_file)
-
-import fitz  # Importing the Fitz library
-
-
-
 def extract_text_with_coords(pdf_path):
-
-    import fitz  # PyMuPDF
     data = []
 
     pdf_document = fitz.open(pdf_path)
@@ -19,6 +11,7 @@ def extract_text_with_coords(pdf_path):
     for page_number in range(len(pdf_document)):
         page = pdf_document.load_page(page_number)
         text = page.get_text()
+        print(text)
         data = data + text.split("\n")
 
 
