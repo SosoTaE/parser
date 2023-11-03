@@ -1,4 +1,6 @@
 import fitz
+import re
+
 
 class FacebookPdfParser:
     def __init__(self, url:[str]):
@@ -6,6 +8,9 @@ class FacebookPdfParser:
         self.url = url
 
     keyword = "Campaigns"
+    text = ""
+    #Campaign Name;Date From; Date  To;Total Amount;Ads set name ;  Impressions;Amount;
+    _headers = ["Campaign", "Code", "From", "To", "Total Amount", "Ads set", "Code", "Impressions", "price"]
 
     def _get_data_from_pdf(self):
         data = []
@@ -41,81 +46,98 @@ class FacebookPdfParser:
 
         return False
 
-    def build_csv(self):
-        data = self._get_data_from_pdf()
+    def _corrector(self, data):
         start_index = self._search_campaings_index(data)
         data_length = len(data)
         i = start_index + 1
         _time = ""
         new_array = []
         listing_boost = ""
-        text = ""
 
         while i < data_length - 1:
             if not data[i]:
                 i += 1
                 continue
             splited = data[i].split()
-
-            if "From" in data[i + 1] and "To" in data[i + 1]:
-                _time = data[i]
-                listing_boost = data[i - 1]
-                text = f"{listing_boost} {_time}"
-                i += 2
-                continue
-            elif "Impressions" in splited and len(splited) != 2:
+            if "Impressions" in splited and len(splited) != 2:
                 impressions = self._impressions_extractor(splited)
                 listing_boost = data[i]
                 listing_boost = listing_boost.replace(impressions, "")
-                # new_array.append(listing_boost)
-                # new_array.append(impressions)
-                print(1,text,f" {listing_boost} {impressions} {data[i + 1]}")
-                i += 1
+                new_array.append(listing_boost)
+                new_array.append(impressions)
             else:
-                if len(new_array)%3 == 0:
-                    print(2,text," ".join(new_array))
-                    new_array = []
-
                 new_array.append(data[i])
-
 
             i += 1
 
+        return new_array
 
-        # for each in new_array:
-        #     print(each)
-
-            # j = i - 3
-            # # each_line = []
-            # while j < i:
-            #     if not data[j]:
-            #         data.pop(j)
-            #         continue
-            #
-            #     j += 1
-            # listing_boost = data[i - 3]
-            # impressions = data[i - 2]
-            # price = data[i - 1]
-            #
-            # if not self._is_price(price):
-            #     if self._is_price(impressions):
-            #         price = impressions
-            #         impressions = self._impressions_extractor(listing_boost)
-            #         listing_boost.replace(impressions, "")
-            #     elif self._is_time(impressions):
-            #         _time = impressions
-            #         i += 3
-            #         continue
-            #
-            # if _time and listing_boost and impressions and price:
-            #     print(_time,listing_boost,impressions,price)
-            #
-            # i += 3
+    def build_csv(self):
+        self.text = ";".join(self._headers) +"\n"
+        data = self._get_data_from_pdf()
+        corrected_data = self._corrector(data)
+        indexes = self._find_all_start_index(corrected_data)
+        i = 1
+        while i < len(indexes):
+            start = indexes[i - 1]
+            end = indexes[i]
+            self.text += self._processor(corrected_data[start:end]) + "\n"
+            i += 1
 
 
+    def _processor(self, array):
+        campaign = array[0]
+        possible_codes = self._base16_exctractor(campaign) + [""]
+        code = possible_codes[0]
+        _from, _to = self._time_formatter(array[1])
+        _total = array[2].replace("$", "")
+        _starting = f"{campaign};{code};{_from};{_to};{_total}"
+        text = ""
+        i = 5
+        while i < len(array):
+            possible_ads_codes = self._base16_exctractor(array[i - 2]) + [""]
+            _code = possible_ads_codes[0]
+            text += f"{_starting};{array[i - 2]};{_code};{re.sub(r'Impressions?','', array[i-1])};{array[i].replace('$', '')}"
+            i += 3
+
+        return text
+
+
+    def _base16_exctractor(self, _str):
+        return re.findall(r'\b[0-9a-fA-F]{20,}\b', _str)
 
 
 
+    def _time_formatter(self, _time):
+        arr = _time.split("to")
+        _to = arr[1]
+        _from = arr[0].replace("From", "")
+
+        return _from, _to
+
+    def _find_all_start_index(self, array):
+        i = 0
+        indexes = []
+        last_price_index = len(array)
+        while i < len(array):
+            if "From" in array[i] and "to" in array[i]:
+                indexes.append(i - 1)
+
+            if self._is_price(array[i]):
+
+                last_price_index = i
+
+            i += 1
+
+        indexes.append(last_price_index + 1)
+
+        return indexes
+
+    def save(self, url):
+        self._url_type_checker(url)
+
+        with open(url, 'w') as file:
+            file.write(self.text)
 
     def _url_type_checker(self, url):
         if not isinstance(url,str):
@@ -130,8 +152,7 @@ class FacebookPdfParser:
 
         return 0
 
-
-
 pdf_file = "2023-09-14T16-46 Transaction #6491719864274042-13296500.pdf"
 obj = FacebookPdfParser(pdf_file)
 obj.build_csv()
+obj.save(url="2023-09-14T16-46 Transaction #6491719864274042-132965001.csv")
