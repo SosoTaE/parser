@@ -11,6 +11,7 @@ class FacebookPdfParser:
     text = ""
     #Campaign Name;Date From; Date  To;Total Amount;Ads set name ;  Impressions;Amount;
     _headers = ["Campaign", "Code", "From", "To", "Total Amount", "Ads set", "Code", "Impressions", "price"]
+    _pattern = r"(\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{1,2},\s\d{4}\b)"
 
     def _get_data_from_pdf(self):
         data = []

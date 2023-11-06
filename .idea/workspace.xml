@@ -6,8 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="1b221793-9417-4d26-9f38-c85ae9d4063e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-13296500.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-132965001.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-132965001.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-132965001.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-09-25T03-57 Transaction #6537843452995012-13372066.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-10-03T03-32 Transaction #6581989615247067-13429271.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-10-17T02-31 Transaction #6616718701774157-13528572.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-10-17T06-28 Transaction #6687598381352852-13529895 (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-10-23T08-06 Transaction #6660114940767867-13572054.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-10-25T06-38 Transaction #6667888889990472-13587681.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/facebookPdfparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/facebookPdfparser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/2023-08-31--2023-09-30_Invoice_Summary(1).csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/2023-08-31--2023-09-30_Invoice_Summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/2023-10-02--2023-10-26_Invoice_Summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/2023-10-02--2023-10-26_Invoice_Summary1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/2023-10-17T06-28 Transaction #6687598381352852-13529895.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008826766.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008842433.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/pdfs.rar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
