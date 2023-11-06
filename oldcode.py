@@ -84,3 +84,47 @@ with open(name, "w") as file:
     text = "\n".join([headers_text,text])
     file.write(text)
 
+
+def callback(data):
+    response, lines, octets = data
+    raw_email = b'\n'.join(lines)
+    # Parse the raw email into a convenient object
+    msg = BytesParser(policy=policy.default).parsebytes(raw_email)
+
+    # Getting various email headers
+    subject = msg['Subject']
+    sender = msg['From']
+    recipient = msg['To']
+
+    print("we got a email")
+    print(msg)
+
+    if pop_username in recipient and pop_username in sender:
+        raise Exception("you can't send message to yourself")
+
+    attached_files = []
+
+    # logger.info(f"Subject: {subject}")
+    # logger.info(f"From: {sender}")
+    # logger.info(f"To: {recipient}")
+
+    if msg.is_multipart():
+        for part in msg.iter_parts():
+            if part.get_content_disposition() == 'attachment':
+                filename = part.get_filename()
+                if not filename:
+                    continue
+                # Save the file or process it as you need
+                with open(filename, 'wb') as f:
+                    f.write(part.get_payload(decode=True))
+
+                try:
+                    read_pdf_and_save_as_pdf(filename, filename)
+                    attached_files.append(filename)
+                except Exception as e:
+                    print(str(e))
+                    print(type(e))
+
+    if attached_files:
+        EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject, files=attached_files,
+                            body="pdf file conveertor to pdf file")

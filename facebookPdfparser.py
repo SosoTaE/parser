@@ -153,11 +153,12 @@ class FacebookPdfParser:
 
         return 0
 
-folder = "./facebookPdf"
-pdf_files = [os.path.join(folder,url) for url in os.listdir(folder)]
-print(pdf_files)
-for each in pdf_files:
-    obj = FacebookPdfParser(url=each)
-    obj.build_csv()
-    obj.save(each.replace(".pdf", ".csv"))
+if __name__ == "__main__":
+    folder = "./facebookPdf"
+    pdf_files = [os.path.join(folder, url) for url in os.listdir(folder)]
+    print(pdf_files)
+    for each in pdf_files:
+        obj = FacebookPdfParser(url=each)
+        obj.build_csv()
+        obj.save(each.replace(".pdf", ".csv"))
 

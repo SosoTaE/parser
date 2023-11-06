@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19b2d695-b1d2-4bbb-831c-5fe78a7b07cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/parser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/parser.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-09-14T16-46 Transaction #6491719864274042-132965001.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdfparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/facebookPdfparser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oldcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/oldcode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008826766.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/invoice_600000008826766.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008842433.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/invoice_600000008842433.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008847584.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/invoice_600000008847584.csv" afterDir="false" />
-    </list>
+    <list default="true" id="19b2d695-b1d2-4bbb-831c-5fe78a7b07cd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

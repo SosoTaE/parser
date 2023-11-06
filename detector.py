@@ -1,5 +1,7 @@
 import fitz
 import os
+from facebookPdfparser import FacebookPdfParser
+from twitterPdfparser import TwitterPdfParser
 
 class PdfTypeError(Exception):
     def __init__(self, message="Pdf File is not identified"):
@@ -30,6 +32,11 @@ def _is_twitter_pdf(text):
             counter += 1
 
     return counter / len(x_signal_words)
+
+parsers_map = {
+    "facebook": FacebookPdfParser,
+    "twitter": TwitterPdfParser
+}
 
 
 def _is_facebook_pdf(text):
