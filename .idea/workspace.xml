@@ -4,40 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b221793-9417-4d26-9f38-c85ae9d4063e" name="Changes" comment="">
+    <list default="true" id="19b2d695-b1d2-4bbb-831c-5fe78a7b07cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/parser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/parser.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-13296500.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-132965001.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-132965001.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-09-14T16-46 Transaction #6491719864274042-132965001.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-09-25T03-57 Transaction #6537843452995012-13372066.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-10-03T03-32 Transaction #6581989615247067-13429271.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-10-17T02-31 Transaction #6616718701774157-13528572.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-10-17T06-28 Transaction #6687598381352852-13529895 (1).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-10-23T08-06 Transaction #6660114940767867-13572054.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023-10-25T06-38 Transaction #6667888889990472-13587681.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-09-14T16-46 Transaction #6491719864274042-132965001.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/facebookPdfparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/facebookPdfparser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/2023-08-31--2023-09-30_Invoice_Summary(1).csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/2023-08-31--2023-09-30_Invoice_Summary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/2023-10-02--2023-10-26_Invoice_Summary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/2023-10-02--2023-10-26_Invoice_Summary1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/2023-10-17T06-28 Transaction #6687598381352852-13529895.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008826766.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008842433.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/pdfs.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oldcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/oldcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008826766.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/invoice_600000008826766.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008842433.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/invoice_600000008842433.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008847584.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pdfs/invoice_600000008847584.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,7 +32,7 @@
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2Xc0umGHefIjvB2JLqSiEQeJzgR" />
+  <component name="ProjectId" id="2XngByrw3omNN2WbYH7wNIuxMs1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -57,25 +41,45 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/projects/parser&quot;
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\projects\parser" />
-      <recent name="E:\projects\parser\pdfs" />
-    </key>
+  <component name="RunManager">
+    <configuration name="detector" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="parser" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/detector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.detector" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1b221793-9417-4d26-9f38-c85ae9d4063e" name="Changes" comment="" />
-      <created>1698913285468</created>
+      <changelist id="19b2d695-b1d2-4bbb-831c-5fe78a7b07cd" name="Changes" comment="" />
+      <created>1699270125921</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1698913285468</updated>
+      <updated>1699270125921</updated>
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 import fitz
 import re
+import os
 
 
 class FacebookPdfParser:
@@ -11,7 +12,6 @@ class FacebookPdfParser:
     text = ""
     #Campaign Name;Date From; Date  To;Total Amount;Ads set name ;  Impressions;Amount;
     _headers = ["Campaign", "Code", "From", "To", "Total Amount", "Ads set", "Code", "Impressions", "price"]
-    _pattern = r"(\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{1,2},\s\d{4}\b)"
 
     def _get_data_from_pdf(self):
         data = []
@@ -153,7 +153,11 @@ class FacebookPdfParser:
 
         return 0
 
-pdf_file = "2023-09-14T16-46 Transaction #6491719864274042-13296500.pdf"
-obj = FacebookPdfParser(pdf_file)
-obj.build_csv()
-obj.save(url="2023-09-14T16-46 Transaction #6491719864274042-132965001.csv")
+folder = "./facebookPdf"
+pdf_files = [os.path.join(folder,url) for url in os.listdir(folder)]
+print(pdf_files)
+for each in pdf_files:
+    obj = FacebookPdfParser(url=each)
+    obj.build_csv()
+    obj.save(each.replace(".pdf", ".csv"))
+

@@ -1,3 +1,5 @@
+import fitz, os, re
+
 pdf_file = "pdfs/invoice_600000008826766.pdf"
 _headers = ["Campaign", "Code", "Date", "price"]
 pattern = r"(\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{1,2},\s\d{4}\b)"
@@ -37,7 +39,7 @@ total = None
 if index is not None:
     total = prices[index]
     prices.pop(index)
-listing_boosts_indexes = [index for index, value in enumerate(data) if "Listing Boost" in value]
+listing_boosts_indexes = [max(0, index - 1) for index, value in enumerate(data) if "#" in value]
 date_indexes = [(index, re.search(pattern, value).group(1)) for index, value in enumerate(data) if re.search(pattern, value)]
 date_indexes.pop(0)
 end_time = date_indexes[0][1]
@@ -46,7 +48,7 @@ listing_boosts = []
 dates = []
 
 j = 1
-for index in listing_boosts_indexes:
+for index, each in enumerate(data):
     value = data[index]
     i = index
     while "#" not in data[i]:
