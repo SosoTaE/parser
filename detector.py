@@ -20,9 +20,6 @@ def _get_data_from_pdf(url):
 
     return data
 
-pdf_file = "pdfs/invoice_600000008842433.pdf"
-
-text = _get_data_from_pdf(pdf_file)
 
 def _is_twitter_pdf(text):
     x_signal_words = ["Twitter", "Inc", "Michael", "Burstein", "Total", "INVOICE"]

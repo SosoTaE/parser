@@ -46,6 +46,7 @@ def callback(data):
         raise Exception("you can't send message to yourself")
 
     attached_files = []
+    messages = []
 
     if msg.is_multipart():
         for part in msg.iter_parts():
@@ -53,7 +54,11 @@ def callback(data):
                 filename = part.get_filename()
                 if not filename:
                     continue
-                # Save the file or process it as you need
+
+                if not filename.endswith(".pdf"):
+                    messages.append(f"filename:{filename}, message:{'file should be pdf.'}")
+                    continue
+
                 received_filepath = os.path.join("received_files", filename)
                 with open(received_filepath, 'wb') as f:
                     f.write(part.get_payload(decode=True))
@@ -68,14 +73,10 @@ def callback(data):
                     obj.save(output_filepath)
                     attached_files.append(output_filepath)
                 except PdfTypeError as e:
-                    EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
-                                                   cc_email=cc_recipients, files=attached_files,
-                                                   body="sorry, I can process only twitter and facebook pdf file. I did not detect that it is one of them, but if it is report about that error.")
+                    messages.append(f"filename:{filename}, message:{'sorry, I can process only twitter and facebook pdf file. I did not detect that it is one of them, but if it is report about that error.'}")
                 except Exception as e:
-                    print(type(e))
-                    EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
-                                                   cc_email=cc_recipients, files=attached_files,
-                                                   body="sorry, there was an error")
+                    messages.append(f"filename:{filename}, message:{'sorry, there was an error'}")
+
 
 
     if attached_files:
@@ -85,7 +86,7 @@ def callback(data):
     else:
         EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
                                        cc_email=cc_recipients, files=attached_files,
-                                       body="there was nothing to process")
+                                       body="\n".join(messages) if messages else "there was nothing to process")
 
 
 if __name__ == "__main__":

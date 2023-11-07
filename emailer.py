@@ -102,9 +102,7 @@ class EmailReceiver(POPService):
         messages_quantity = len(self.server.list()[1])
         index = 0
         while True:
-           print("done")
            try:
-               print("looping", index)
                index += 1
                self.quit()
                self.server = self._connect_to_server()
