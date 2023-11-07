@@ -1,15 +1,8 @@
 from emailer import EmailReceiver, EmailSender
 from config import *
-import poplib
-import threading
-import time
-import email
 from email import policy
 from email.parser import BytesParser
 from config import SERVER, ADDRESS, PORT, PASSWORD
-from logger import logger
-import smtplib
-from email.message import EmailMessage
 from detector import parsers_map, detector, PdfTypeError
 
 pop_server = str(SERVER)
@@ -22,6 +15,7 @@ smtp_server = str(SERVER)
 smtp_port = 587  # or 465 for SSL 587
 smtp_username = str(ADDRESS)
 smtp_password = str(PASSWORD)
+
 
 def callback(data):
     response, lines, octets = data
@@ -36,9 +30,17 @@ def callback(data):
     cc_recipients = msg['Cc']
     if isinstance(cc_recipients, str):
         cc_recipients = [cc_recipients]
+    elif cc_recipients is None:
+        cc_recipients = []
+
+
+    try:
+        _index = cc_recipients.index(pop_username)
+        cc_recipients.pop(_index)
+    except Exception as e:
+        print(e, type(e))
 
     print("we got a email")
-    print(msg)
 
     if pop_username in recipient and pop_username in sender:
         raise Exception("you can't send message to yourself")
@@ -66,19 +68,30 @@ def callback(data):
                     obj.save(output_filepath)
                     attached_files.append(output_filepath)
                 except PdfTypeError as e:
-                    print(e)
+                    EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
+                                                   cc_email=cc_recipients, files=attached_files,
+                                                   body="sorry, I can process only twitter and facebook pdf file. I did not detect that it is one of them, but if it is report about that error.")
                 except Exception as e:
-                    print(str(e))
                     print(type(e))
+                    EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
+                                                   cc_email=cc_recipients, files=attached_files,
+                                                   body="sorry, there was an error")
+
 
     if attached_files:
-        EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject, cc_email=cc_recipients, files=attached_files,
-                            body="converted successfully")
+        EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
+                                       cc_email=cc_recipients, files=attached_files,
+                                       body="converted successfully")
+    else:
+        EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
+                                       cc_email=cc_recipients, files=attached_files,
+                                       body="there was nothing to process")
 
 
 if __name__ == "__main__":
-    EmailSenderInstance = EmailSender(smtp_server=SERVER, smtp_port=smtp_port, smtp_username=smtp_username,smtp_password=smtp_password)
-    EmailReceiverInstance = EmailReceiver(pop_server=pop_server, pop_port=pop_port, pop_username=pop_username, pop_password=pop_password)
+    EmailSenderInstance = EmailSender(smtp_server=SERVER, smtp_port=smtp_port, smtp_username=smtp_username,
+                                      smtp_password=smtp_password)
+    EmailReceiverInstance = EmailReceiver(pop_server=pop_server, pop_port=pop_port, pop_username=pop_username,
+                                          pop_password=pop_password)
     EmailReceiverInstance.set_sender(EmailSenderInstance)
-    EmailReceiverInstance.listen_to_server(callback=callback,thread=True)
-
+    EmailReceiverInstance.listen_to_server(callback=callback, thread=True)
