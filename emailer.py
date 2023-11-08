@@ -89,7 +89,7 @@ class POPService:
             return server
         except Exception as e:
             logger.error(str(e))
-            server = self._try_reconnect_to_server()
+            return self._try_reconnect_to_server()
 
 class EmailReceiver(POPService):
     def __init__(self, pop_server: str, pop_port: int, pop_username: str, pop_password: str):
@@ -100,10 +100,8 @@ class EmailReceiver(POPService):
     _sender = None
     def _email_listener(self, callback, thread=False):
         messages_quantity = len(self.server.list()[1])
-        index = 0
         while True:
            try:
-               index += 1
                self.quit()
                self.server = self._connect_to_server()
 

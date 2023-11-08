@@ -72,6 +72,8 @@ def callback(data):
                     output_filepath = os.path.join("results", output_filename)
                     obj.save(output_filepath)
                     attached_files.append(output_filepath)
+                    messages.append(
+                        f"filename:{filename}, message:{'converted successfully'}")
                 except PdfTypeError as e:
                     messages.append(f"filename:{filename}, message:{'sorry, I can process only twitter and facebook pdf file. I did not detect that it is one of them, but if it is report about that error.'}")
                 except Exception as e:
@@ -79,11 +81,7 @@ def callback(data):
 
 
 
-    if attached_files:
-        EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
-                                       cc_email=cc_recipients, files=attached_files,
-                                       body="converted successfully")
-    else:
+
         EmailSenderInstance.send_email(receiver_email=sender, sender_email=recipient, subject=subject,
                                        cc_email=cc_recipients, files=attached_files,
                                        body="\n".join(messages) if messages else "there was nothing to process")

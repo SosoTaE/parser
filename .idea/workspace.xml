@@ -6,35 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="65b6c945-29bf-46a6-845c-06d59cd9e1f6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/2023-09-14T16-46 Transaction #6491719864274042-13296500.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/2023-09-25T03-57 Transaction #6537843452995012-13372066.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/2023-10-03T03-32 Transaction #6581989615247067-13429271.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/2023-10-17T02-31 Transaction #6616718701774157-13528572.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/2023-10-23T08-06 Transaction #6660114940767867-13572054.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/2023-10-25T06-38 Transaction #6667888889990472-13587681.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/invoice_600000008826766.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/invoice_600000008842433.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/invoice_600000008847584.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/invoice_600000008870291.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/all_in_one/invoice_600000008888453.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/detector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emailer.py" beforeDir="false" afterPath="$PROJECT_DIR$/emailer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-09-14T16-46 Transaction #6491719864274042-13296500.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-09-25T03-57 Transaction #6537843452995012-13372066.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-10-03T03-32 Transaction #6581989615247067-13429271.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-10-17T02-31 Transaction #6616718701774157-13528572.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-10-23T08-06 Transaction #6660114940767867-13572054.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/2023-10-25T06-38 Transaction #6667888889990472-13587681.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/facebookPdf/facebookPdf.rar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/info.log" beforeDir="false" afterPath="$PROJECT_DIR$/info.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008826766.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008842433.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008847584.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008870291.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/invoice_600000008888453.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdfs/pdfs.rar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

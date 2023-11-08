@@ -1,6 +1,6 @@
 import logging
 
-logger = logging.getLogger("pdfReader")
+logger = logging.getLogger("Emailer")
 
 file_handler = logging.FileHandler(filename="./info.log")
 console_handler = logging.StreamHandler()
