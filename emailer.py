@@ -16,8 +16,8 @@ pop_username = str(ADDRESS)
 pop_password = str(PASSWORD)
 
 # SMTP settings
-smtp_server =  str(SERVER)
-smtp_port = 587  # or 465 for SSL 587
+smtp_server = str(SERVER)
+smtp_port = 465  # or 465 for SSL 587
 smtp_username = str(ADDRESS)
 smtp_password = str(PASSWORD)
 
@@ -97,13 +97,21 @@ class EmailReceiver(POPService):
         self.server = self._connect_to_server()
         self.server.set_debuglevel(1)
 
+
+    server = None
+
     _sender = None
     def _email_listener(self, callback, thread=False):
         messages_quantity = len(self.server.list()[1])
         while True:
-           try:
-               self.quit()
+            try:
+                self.quit()
+            except Exception as e:
+                logger.error(f"error type:{str(type(e))}, error message:{str(e)}")
+
+            try:
                self.server = self._connect_to_server()
+               self.server.set_debuglevel(1)
 
                if not self.server:
                    continue
@@ -123,10 +131,8 @@ class EmailReceiver(POPService):
                    messages_quantity = new_messages_quantity
 
                time.sleep(2)  # sleep for 30 seconds
-           except Exception as e:
-               logger.error(f"error type:{str(type(e))}, error message:{str(e)}")
-
-           time.sleep(2)  # sleep for 30 seconds
+            except Exception as e:
+                logger.error(f"error type:{str(type(e))}, error message:{str(e)}")
 
     def set_sender(self, class_instace):
         if not isinstance(class_instace, EmailSender):
@@ -203,7 +209,11 @@ class EmailSender(SMTPService):
         self._send_message(msg)
 
     def quit(self):
-        self.server.quit()
+        try:
+            self.server.quit()
+        except Exception as e:
+            print(e, type(e))
+            raise
 
 
 # if __name__ == "__main__":
